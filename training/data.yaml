@@ -1,0 +1,12 @@
+# Complete-Blood-Cell-Count-Dataset — YOLOv8 Configuration
+path: C:/Users/NI/Downloads/Blood_report_analyzer/data/bccd
+train: images/train
+val:   images/val
+test:  images/test
+
+nc: 3
+
+names:
+  0: Platelet
+  1: RBC
+  2: WBC

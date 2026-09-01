@@ -1,0 +1,22 @@
+{
+  "model_name": "MobileNetV3-Small (AneRBC)",
+  "model_version": "1.0.0",
+  "accuracy": 0.8056,
+  "precision": 0.819,
+  "recall_sensitivity": 0.9773,
+  "specificity": 0.05,
+  "f1_score": 0.8912,
+  "roc_auc": 0.7477,
+  "confusion_matrix": {
+    "TN": 1,
+    "FP": 19,
+    "FN": 2,
+    "TP": 86
+  },
+  "sample_counts": {
+    "total": 716,
+    "train": 501,
+    "val": 107,
+    "test": 108
+  }
+}

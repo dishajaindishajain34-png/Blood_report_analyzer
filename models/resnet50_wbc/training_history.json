@@ -1,0 +1,16 @@
+{
+  "model_type": "sklearn_ensemble_svm_rf",
+  "train_acc": 0.9976,
+  "val_acc": 0.6321,
+  "n_train": 415,
+  "n_val": 106,
+  "n_features": 224,
+  "classes": [
+    "Neutrophil",
+    "Lymphocyte",
+    "Monocyte",
+    "Eosinophil",
+    "Basophil"
+  ],
+  "trained_at": "2026-07-29T15:27:30.320443"
+}

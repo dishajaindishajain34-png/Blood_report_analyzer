@@ -1,0 +1,6 @@
+train: C:\Users\Admin\Downloads\archive_images\train\img
+val:   C:\Users\Admin\Downloads\archive_images\val\img
+test:  C:\Users\Admin\Downloads\archive_images\test\img
+
+nc: 3
+names: ['Platelet','RBC','WBC']

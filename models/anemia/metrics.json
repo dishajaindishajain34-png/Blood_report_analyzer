@@ -1,0 +1,133 @@
+{
+  "model_name": "Random Forest",
+  "model_version": "1.0.0",
+  "dataset_source": "Kaggle Anemia Dataset (Biswa Ranjan Rao)",
+  "features": [
+    "Gender",
+    "Hemoglobin",
+    "MCH",
+    "MCHC",
+    "MCV"
+  ],
+  "class_mapping": {
+    "0": "Normal",
+    "1": "Anemic"
+  },
+  "sample_counts": {
+    "total": 1421,
+    "train": 994,
+    "val": 213,
+    "test": 214
+  },
+  "class_distributions": {
+    "full": {
+      "0": 801,
+      "1": 620
+    },
+    "train": {
+      "0": 560,
+      "1": 434
+    },
+    "val": {
+      "0": 120,
+      "1": 93
+    },
+    "test": {
+      "0": 121,
+      "1": 93
+    }
+  },
+  "validation_results": {
+    "Baseline (Rule-Based Ref Range)": {
+      "accuracy": 0.9718,
+      "precision": 1.0,
+      "recall_sensitivity": 0.9355,
+      "specificity": 1.0,
+      "f1_score": 0.9667,
+      "roc_auc": 0.5,
+      "confusion_matrix": {
+        "TN": 120,
+        "FP": 0,
+        "FN": 6,
+        "TP": 87
+      }
+    },
+    "Logistic Regression": {
+      "accuracy": 0.9906,
+      "precision": 0.9789,
+      "recall_sensitivity": 1.0,
+      "specificity": 0.9833,
+      "f1_score": 0.9894,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "TN": 118,
+        "FP": 2,
+        "FN": 0,
+        "TP": 93
+      }
+    },
+    "Random Forest": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "TN": 120,
+        "FP": 0,
+        "FN": 0,
+        "TP": 93
+      }
+    },
+    "Gradient Boosting": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "TN": 120,
+        "FP": 0,
+        "FN": 0,
+        "TP": 93
+      }
+    },
+    "SVM (RBF Kernel)": {
+      "accuracy": 0.9765,
+      "precision": 0.949,
+      "recall_sensitivity": 1.0,
+      "specificity": 0.9583,
+      "f1_score": 0.9738,
+      "roc_auc": 0.9996,
+      "confusion_matrix": {
+        "TN": 115,
+        "FP": 5,
+        "FN": 0,
+        "TP": 93
+      }
+    }
+  },
+  "test_results": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall_sensitivity": 1.0,
+    "specificity": 1.0,
+    "f1_score": 1.0,
+    "roc_auc": 1.0,
+    "confusion_matrix": {
+      "TN": 121,
+      "FP": 0,
+      "FN": 0,
+      "TP": 93
+    }
+  },
+  "feature_importances": {
+    "Gender": 0.0982,
+    "Hemoglobin": 0.8332,
+    "MCH": 0.0223,
+    "MCHC": 0.0186,
+    "MCV": 0.0277
+  }
+}

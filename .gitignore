@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+data/
+runs/
+reports/
+
+node_modules/
+dist/
+build/
+
+*.log
