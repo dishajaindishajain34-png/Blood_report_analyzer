@@ -379,14 +379,31 @@ def generate_report(
         pdf.set_font("Helvetica", "I", 8)
         pdf.set_text_color(*C_GREY)
         strategy_desc = {
+            "learned_stacking_ensemble": "Learned Multimodal Fusion (Stacking Ensemble Model)",
             "learned_logistic_regression": "Learned Multimodal Fusion (Logistic Regression Model)",
             "learned_lr": "Learned Multimodal Fusion (Logistic Regression Model)",
             "average_fallback": "Fallback Fusion - trained fusion model unavailable",
             "image_only": "Image Modality Only",
-            "cbc_only": "CBC Modality Only"
+            "cbc_only": "CBC Modality Only",
+            "experimental_gmu_dual": "Experimental GMU Fusion (Dual-Modality: Smear + CBC)",
+            "experimental_gmu_image_only": "Experimental GMU Fusion (Image Modality Only)",
+            "experimental_gmu_cbc_only": "Experimental GMU Fusion (CBC Modality Only)",
         }.get(fuse_strategy, fuse_strategy)
-        pdf.cell(W, 5, f"  Fusion Strategy: {strategy_desc}  |  Version: {fuse_ver}",
+        gate_info = ""
+        gate_val = anemia_fusion_result.get("latent_gate_mean")
+        if gate_val is not None:
+            try:
+                gate_info = f"  |  GMU Gate Mean: {float(gate_val):.3f}"
+            except Exception:
+                pass
+        pdf.cell(W, 5, f"  Fusion Strategy: {strategy_desc}  |  Version: {fuse_ver}{gate_info}",
                  border=0, fill=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
+        if anemia_fusion_result.get("is_experimental") or "experimental" in str(fuse_strategy).lower():
+            pdf.set_font("Helvetica", "B", 7.5)
+            pdf.set_text_color(*C_WARNING)
+            pdf.cell(W, 5, "  [!] NOTICE: Experimental GMU Model trained on synthetic pairings. Academic prototype only.",
+                     border=0, fill=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         pdf.ln(4)
 
     # ── 5. WBC DIFFERENTIAL ───────────────────────────────────────────────────

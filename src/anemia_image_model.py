@@ -12,6 +12,7 @@ Outputs:
   prediction        : str  — 'Anemic' or 'Normal'
   probability       : float — probability of being Anemic (0.0–1.0)
   confidence        : float — max class probability
+  threshold         : float — calibrated operating threshold
   model_version     : str
   status            : str  — 'success' | 'model_missing' | 'error'
   message           : str
@@ -42,11 +43,12 @@ _DEFAULT_MEAN = [0.485, 0.456, 0.406]  # ImageNet mean
 _DEFAULT_STD = [0.229, 0.224, 0.225]   # ImageNet std
 
 
-class ImageAnemiaPrediction(TypedDict):
+class ImageAnemiaPrediction(TypedDict, total=False):
     prediction: str          # 'Anemic' | 'Normal'
     is_anemic: bool
     probability: float       # P(Anemic)
     confidence: float        # max class probability
+    threshold: float         # operating decision threshold
     model_version: str
     model_name: str
     status: str              # 'success' | 'model_missing' | 'error'
@@ -134,7 +136,7 @@ def predict_image_anemia(image: Image.Image) -> ImageAnemiaPrediction:
 
     Returns:
         ImageAnemiaPrediction TypedDict with prediction, probability, confidence,
-        model_version, status, and message.
+        threshold, model_version, status, and message.
     """
     model, metadata = _load_image_model()
 
@@ -144,6 +146,7 @@ def predict_image_anemia(image: Image.Image) -> ImageAnemiaPrediction:
             "is_anemic": False,
             "probability": 0.0,
             "confidence": 0.0,
+            "threshold": 0.5,
             "model_version": "N/A",
             "model_name": "MobileNetV3-Small (AneRBC)",
             "status": "model_missing",
@@ -165,7 +168,8 @@ def predict_image_anemia(image: Image.Image) -> ImageAnemiaPrediction:
 
         prob_anemic = float(probs[1])
         prob_normal = float(probs[0])
-        is_anemic = prob_anemic > 0.5
+        threshold = float(metadata.get("optimal_threshold", 0.5))
+        is_anemic = prob_anemic >= threshold
         prediction_str = "Anemic" if is_anemic else "Normal"
         confidence = float(np.max(probs))
 
@@ -174,7 +178,8 @@ def predict_image_anemia(image: Image.Image) -> ImageAnemiaPrediction:
             "is_anemic": is_anemic,
             "probability": round(prob_anemic, 4),
             "confidence": round(confidence, 4),
-            "model_version": metadata.get("model_version", "1.0.0"),
+            "threshold": round(threshold, 4),
+            "model_version": metadata.get("model_version", "1.1.0"),
             "model_name": metadata.get("model_name", "MobileNetV3-Small (AneRBC)"),
             "status": "success",
             "message": "Image-based anemia prediction successful.",
@@ -186,7 +191,8 @@ def predict_image_anemia(image: Image.Image) -> ImageAnemiaPrediction:
             "is_anemic": False,
             "probability": 0.0,
             "confidence": 0.0,
-            "model_version": metadata.get("model_version", "1.0.0"),
+            "threshold": 0.5,
+            "model_version": metadata.get("model_version", "1.1.0"),
             "model_name": metadata.get("model_name", "MobileNetV3-Small (AneRBC)"),
             "status": "error",
             "message": f"Prediction error: {e}",

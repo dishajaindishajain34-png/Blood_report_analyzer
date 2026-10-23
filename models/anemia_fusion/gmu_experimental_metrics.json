@@ -1,0 +1,152 @@
+{
+  "experiment_name": "GMU Experimental Multimodal Fusion (Synthetic Combinations)",
+  "status": "EXPERIMENTAL_SYNTHETIC_DATA",
+  "warning": "NOT_VALIDATED_ON_PAIRED_PATIENT_DATA",
+  "training_date": "2026-10-23T09:56:18.774556+00:00",
+  "random_seed": 42,
+  "sample_counts": {
+    "train": 2000,
+    "val": 400,
+    "test": 400
+  },
+  "optimization": {
+    "epochs_requested": 10,
+    "best_epoch": 9,
+    "best_val_loss": 0.0617,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "loss_function": "BCEWithLogitsLoss",
+    "optimizer": "AdamW"
+  },
+  "synthetic_test_metrics": {
+    "gmu_fused": {
+      "accuracy": 0.975,
+      "accuracy_ci_95": [
+        0.96,
+        0.9875
+      ],
+      "sensitivity": 0.97,
+      "sensitivity_ci_95": [
+        0.945,
+        0.9902
+      ],
+      "specificity": 0.98,
+      "specificity_ci_95": [
+        0.959,
+        0.9952
+      ],
+      "precision": 0.9798,
+      "precision_ci_95": [
+        0.9588,
+        0.9952
+      ],
+      "f1_score": 0.9749,
+      "f1_ci_95": [
+        0.9592,
+        0.9882
+      ],
+      "roc_auc": 0.9978,
+      "roc_auc_ci_95": [
+        0.9953,
+        0.9994
+      ],
+      "confusion_matrix": {
+        "TN": 196,
+        "FP": 4,
+        "FN": 6,
+        "TP": 194
+      }
+    },
+    "baselines": {
+      "image_only": {
+        "accuracy": 0.69,
+        "sensitivity": 0.71,
+        "specificity": 0.67,
+        "f1_score": 0.6961,
+        "roc_auc": 0.7495,
+        "confusion_matrix": {
+          "TN": 134,
+          "FP": 66,
+          "FN": 58,
+          "TP": 142
+        }
+      },
+      "cbc_only": {
+        "accuracy": 0.97,
+        "sensitivity": 0.98,
+        "specificity": 0.96,
+        "f1_score": 0.9703,
+        "roc_auc": 0.998,
+        "confusion_matrix": {
+          "TN": 192,
+          "FP": 8,
+          "FN": 4,
+          "TP": 196
+        }
+      },
+      "prob_averaging": {
+        "accuracy": 0.9775,
+        "sensitivity": 0.98,
+        "specificity": 0.975,
+        "f1_score": 0.9776,
+        "roc_auc": 0.9922,
+        "confusion_matrix": {
+          "TN": 195,
+          "FP": 5,
+          "FN": 4,
+          "TP": 196
+        }
+      }
+    }
+  },
+  "training_history": {
+    "train_loss": [
+      0.2629595322608948,
+      0.15020642161369324,
+      0.1312679362297058,
+      0.11423264008760452,
+      0.10007300740480422,
+      0.09474843071401119,
+      0.07731872446089982,
+      0.07210484474897384,
+      0.06828064793348312,
+      0.06316808085888624
+    ],
+    "train_acc": [
+      0.8985,
+      0.9485,
+      0.952,
+      0.954,
+      0.9675,
+      0.9685,
+      0.975,
+      0.9765,
+      0.9745,
+      0.979
+    ],
+    "val_loss": [
+      0.10285668537020683,
+      0.08779872268438339,
+      0.08407573491334915,
+      0.06872556000947952,
+      0.08733433812856674,
+      0.0690988001972437,
+      0.0717601253092289,
+      0.07703258275985718,
+      0.06171968288719654,
+      0.07593985736370086
+    ],
+    "val_acc": [
+      0.975,
+      0.98,
+      0.9725,
+      0.9825,
+      0.96,
+      0.9825,
+      0.975,
+      0.9775,
+      0.985,
+      0.9675
+    ]
+  }
+}

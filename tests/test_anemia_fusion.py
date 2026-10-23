@@ -97,5 +97,27 @@ class TestAnemiaFusion(unittest.TestCase):
                 prob_lr = float(lr.predict_proba([[0.9928, 0.85]])[0][1])
                 self.assertAlmostEqual(res["fusion_probability"], round(prob_lr, 4))
 
+    def test_trained_stacking_ensemble_live(self):
+        # Test real trained model from models/anemia_fusion/
+        from src.anemia_fusion import FUSION_MODEL_PATH
+        if not FUSION_MODEL_PATH.exists():
+            self.skipTest("Trained fusion model not found on disk")
+
+        # 1. Normal patient case with noisy image
+        normal_cbc = {"Gender": 1, "Hemoglobin": 14.5, "MCV": 88.0, "MCH": 29.5, "MCHC": 33.5}
+        res_norm = predict_fusion(0.75, 0.01, cbc_params=normal_cbc)
+        self.assertEqual(res_norm["status"], "success")
+        self.assertEqual(res_norm["fusion_strategy"], "learned_stacking_ensemble")
+        self.assertEqual(res_norm["fusion_prediction"], "Normal")
+        self.assertLess(res_norm["fusion_probability"], 0.20)
+
+        # 2. Anemic patient case
+        anemic_cbc = {"Gender": 0, "Hemoglobin": 8.5, "MCV": 74.0, "MCH": 23.0, "MCHC": 29.5}
+        res_anem = predict_fusion(0.92, 0.98, cbc_params=anemic_cbc)
+        self.assertEqual(res_anem["status"], "success")
+        self.assertEqual(res_anem["fusion_strategy"], "learned_stacking_ensemble")
+        self.assertEqual(res_anem["fusion_prediction"], "Anemic")
+        self.assertGreater(res_anem["fusion_probability"], 0.85)
+
 if __name__ == "__main__":
     unittest.main()

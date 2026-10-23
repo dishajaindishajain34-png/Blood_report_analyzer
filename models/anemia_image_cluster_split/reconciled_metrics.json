@@ -1,0 +1,155 @@
+{
+  "audit_version": "1.0.0",
+  "timestamp": "2026-10-23T11:30:00Z",
+  "description": "Reconciled and audited evaluation metrics for the cluster-level remediated split.",
+  "test_dataset": {
+    "source_manifest": "models/anemia_image_cluster_split/cluster_split_manifest.csv",
+    "predictions_artifact": "models/anemia_image_cluster_split/test_predictions.csv",
+    "total_images": 129,
+    "total_clusters": 123,
+    "normal_images_count": 19,
+    "anemic_images_count": 110,
+    "cluster_size_distribution": {
+      "1_image_clusters": 117,
+      "2_image_clusters": 6
+    }
+  },
+  "operating_threshold": {
+    "frozen_value": 0.5007,
+    "selection_split": "validation_split_only",
+    "selection_criterion": "Youden's J statistic (max TPR - FPR)",
+    "validation_youden_j": 0.6534,
+    "validation_roc_auc": 0.8987
+  },
+  "recomputed_test_metrics": {
+    "point_estimates": {
+      "accuracy": 0.7519,
+      "sensitivity_recall": 0.7727,
+      "specificity": 0.6316,
+      "precision": 0.9239,
+      "f1_score": 0.8416,
+      "roc_auc": 0.8167,
+      "confusion_matrix": {
+        "TN": 12,
+        "FP": 7,
+        "FN": 25,
+        "TP": 85
+      }
+    },
+    "image_level_bootstrap_95_ci": {
+      "resampling_unit": "image",
+      "n_bootstraps": 1000,
+      "random_seed": 42,
+      "accuracy": [
+        0.682,
+        0.8295
+      ],
+      "sensitivity_recall": [
+        0.6944,
+        0.8469
+      ],
+      "specificity": [
+        0.4,
+        0.8502
+      ],
+      "precision": [
+        0.8686,
+        0.975
+      ],
+      "f1_score": [
+        0.7853,
+        0.8942
+      ],
+      "roc_auc": [
+        0.722,
+        0.8994
+      ]
+    },
+    "cluster_aware_bootstrap_95_ci": {
+      "resampling_unit": "cluster",
+      "n_bootstraps": 1000,
+      "random_seed": 42,
+      "accuracy": [
+        0.6719,
+        0.8271
+      ],
+      "sensitivity_recall": [
+        0.6937,
+        0.8545
+      ],
+      "specificity": [
+        0.4117,
+        0.8421
+      ],
+      "precision": [
+        0.8621,
+        0.9762
+      ],
+      "f1_score": [
+        0.7822,
+        0.8959
+      ],
+      "roc_auc": [
+        0.716,
+        0.9012
+      ]
+    }
+  },
+  "historical_tracing_reconciliation": {
+    "baseline_unweighted_model": {
+      "checkpoint": "models/anemia_image/mobilenetv3_anemia_original_baseline.pth",
+      "historical_metric_in_docs": {
+        "document": "docs/ANEMIA_IMAGE_MODEL.md",
+        "reported_roc_auc": 0.7477,
+        "explanation": "Initial training evaluation on 108 unpurged test images prior to cross-class duplicate removal."
+      },
+      "verified_metric_in_independent_verification": {
+        "document": "models/anemia_image/independent_verification.json",
+        "predictions_file": "models/anemia_image/test_predictions.csv",
+        "reported_roc_auc": 0.8755,
+        "recomputed_from_predictions": 0.8752,
+        "explanation": "Evaluated on 128 images with cross-class conflicting duplicate removed."
+      }
+    },
+    "weighted_retrained_model": {
+      "checkpoint": "models/anemia_image/mobilenetv3_anemia.pth",
+      "verified_metric_in_independent_verification": {
+        "document": "models/anemia_image/independent_verification.json",
+        "metrics_file": "models/anemia_image/metrics.json",
+        "predictions_file": "models/anemia_image/test_predictions.csv",
+        "reported_roc_auc": 0.85,
+        "recomputed_from_predictions": 0.85
+      },
+      "erroneous_value_in_previous_table": {
+        "value_shown": 0.8148,
+        "root_cause": "Clerical transcription error in report drafting (mistranscribed 88/108=0.8148 or CBC audit precision 0.8149 instead of 0.8500)."
+      }
+    }
+  },
+  "cluster_manifest_summary": {
+    "manifest_file": "models/anemia_image_cluster_split/cluster_split_manifest.csv",
+    "total_images": 837,
+    "total_unique_clusters": 811,
+    "partitions": {
+      "train": {
+        "images": 583,
+        "clusters": 567,
+        "normal": 86,
+        "anemic": 497
+      },
+      "val": {
+        "images": 125,
+        "clusters": 121,
+        "normal": 19,
+        "anemic": 106
+      },
+      "test": {
+        "images": 129,
+        "clusters": 123,
+        "normal": 19,
+        "anemic": 110
+      }
+    },
+    "cross_split_cluster_overlap": 0
+  }
+}

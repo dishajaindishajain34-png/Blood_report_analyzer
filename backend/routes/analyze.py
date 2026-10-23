@@ -141,6 +141,7 @@ async def analyze_image(
     mcv:    float | None = Form(None),
     mch:    float | None = Form(None),
     mchc:   float | None = Form(None),
+    fusion_mode: str = Form("default"),
 ):
     """
     Upload a blood smear image and receive a full AI analysis result.
@@ -197,6 +198,11 @@ async def analyze_image(
     if mcv  is None: mcv  = _qp_float("mcv")
     if mch  is None: mch  = _qp_float("mch")
     if mchc is None: mchc = _qp_float("mchc")
+
+    if fusion_mode == "default":
+        qp_mode = request.query_params.get("fusion_mode")
+        if qp_mode and qp_mode.strip():
+            fusion_mode = qp_mode.strip()
 
     # Diagnostic logging (requested by user for verification)
     print("CBC RECEIVED:")
@@ -334,10 +340,22 @@ async def analyze_image(
     fusion_payload = None
     fusion_schema = None
     try:
-        from src.anemia_fusion import predict_fusion
+        from src.anemia_fusion import predict_fusion, predict_gmu_experimental
         image_prob = img_anemia_payload.get("probability") if (img_anemia_payload and img_anemia_payload.get("status") == "success") else None
         cbc_prob = anemia_ml_payload.get("probability") if (anemia_ml_payload and anemia_ml_payload.get("status") == "success") else None
-        fusion_payload = predict_fusion(image_prob, cbc_prob)
+
+        is_gmu_mode = str(fusion_mode).strip().lower() in ("experimental_gmu", "gmu", "experimental")
+        if is_gmu_mode:
+            fusion_payload = predict_gmu_experimental(image=_pil_for_report, cbc_params=cbc_input)
+            if image_prob is not None:
+                fusion_payload["image_probability"] = image_prob
+            if cbc_prob is not None:
+                fusion_payload["cbc_probability"] = cbc_prob
+        else:
+            fusion_payload = predict_fusion(image_prob, cbc_prob, cbc_params=cbc_input, image_details=img_anemia_payload)
+            fusion_payload["fusion_mode"] = "default"
+            fusion_payload["is_experimental"] = False
+
         if fusion_payload.get("status") == "success":
             from backend.schemas import FusionAnemiaResponse
             fusion_schema = FusionAnemiaResponse(
@@ -350,7 +368,11 @@ async def analyze_image(
                 cbc_probability   = fusion_payload.get("cbc_probability", 0.0),
                 model_version = fusion_payload.get("model_version", "1.0.0"),
                 status     = "success",
-                message    = "Anemia prediction fusion completed."
+                message    = fusion_payload.get("message", "Anemia prediction fusion completed."),
+                fusion_mode = fusion_payload.get("fusion_mode", "default"),
+                latent_gate_mean = fusion_payload.get("latent_gate_mean"),
+                is_experimental = fusion_payload.get("is_experimental", False),
+                limitation_notice = fusion_payload.get("limitation_notice"),
             )
     except Exception as e:
         log.warning("[%s] Anemia fusion prediction skipped: %s", analysis_id, e)

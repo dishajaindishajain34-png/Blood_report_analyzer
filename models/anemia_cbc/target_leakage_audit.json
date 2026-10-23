@@ -1,0 +1,155 @@
+{
+  "dataset_summary": {
+    "total_records": 2695,
+    "train_samples": 1886,
+    "test_samples": 809,
+    "anemic_count": 1429,
+    "normal_count": 1266
+  },
+  "configurations": {
+    "standard_with_hb": {
+      "features": [
+        "Gender",
+        "Hemoglobin",
+        "MCV",
+        "MCH",
+        "MCHC"
+      ],
+      "models": {
+        "RandomForest": {
+          "accuracy": 0.9951,
+          "precision": 0.9953,
+          "sensitivity_recall": 0.9953,
+          "specificity": 0.9947,
+          "f1_score": 0.9953,
+          "roc_auc": 0.9999,
+          "confusion_matrix": {
+            "TN": 378,
+            "FP": 2,
+            "FN": 2,
+            "TP": 427
+          },
+          "feature_importance": {
+            "Gender": 0.0543,
+            "Hemoglobin": 0.7998,
+            "MCV": 0.07,
+            "MCH": 0.0452,
+            "MCHC": 0.0308
+          }
+        },
+        "GradientBoosting": {
+          "accuracy": 0.9988,
+          "precision": 1.0,
+          "sensitivity_recall": 0.9977,
+          "specificity": 1.0,
+          "f1_score": 0.9988,
+          "roc_auc": 1.0,
+          "confusion_matrix": {
+            "TN": 380,
+            "FP": 0,
+            "FN": 1,
+            "TP": 428
+          },
+          "feature_importance": {
+            "Gender": 0.1085,
+            "Hemoglobin": 0.8344,
+            "MCV": 0.0101,
+            "MCH": 0.0313,
+            "MCHC": 0.0156
+          }
+        },
+        "LogisticRegression": {
+          "accuracy": 0.9481,
+          "precision": 0.9553,
+          "sensitivity_recall": 0.9464,
+          "specificity": 0.95,
+          "f1_score": 0.9508,
+          "roc_auc": 0.9905,
+          "confusion_matrix": {
+            "TN": 361,
+            "FP": 19,
+            "FN": 23,
+            "TP": 406
+          },
+          "feature_importance": {
+            "Gender": 1.4699,
+            "Hemoglobin": -8.7894,
+            "MCV": -0.4219,
+            "MCH": 0.9556,
+            "MCHC": 0.672
+          }
+        }
+      }
+    },
+    "leakage_free_without_hb": {
+      "features": [
+        "Gender",
+        "MCV",
+        "MCH",
+        "MCHC"
+      ],
+      "models": {
+        "RandomForest": {
+          "accuracy": 0.8356,
+          "precision": 0.8149,
+          "sensitivity_recall": 0.8928,
+          "specificity": 0.7711,
+          "f1_score": 0.8521,
+          "roc_auc": 0.8974,
+          "confusion_matrix": {
+            "TN": 293,
+            "FP": 87,
+            "FN": 46,
+            "TP": 383
+          },
+          "feature_importance": {
+            "Gender": 0.0952,
+            "MCV": 0.3863,
+            "MCH": 0.2777,
+            "MCHC": 0.2408
+          }
+        },
+        "GradientBoosting": {
+          "accuracy": 0.8072,
+          "precision": 0.8054,
+          "sensitivity_recall": 0.8392,
+          "specificity": 0.7711,
+          "f1_score": 0.8219,
+          "roc_auc": 0.8774,
+          "confusion_matrix": {
+            "TN": 293,
+            "FP": 87,
+            "FN": 69,
+            "TP": 360
+          },
+          "feature_importance": {
+            "Gender": 0.1079,
+            "MCV": 0.4185,
+            "MCH": 0.2536,
+            "MCHC": 0.22
+          }
+        },
+        "LogisticRegression": {
+          "accuracy": 0.6452,
+          "precision": 0.642,
+          "sensitivity_recall": 0.7483,
+          "specificity": 0.5289,
+          "f1_score": 0.6911,
+          "roc_auc": 0.6646,
+          "confusion_matrix": {
+            "TN": 201,
+            "FP": 179,
+            "FN": 108,
+            "TP": 321
+          },
+          "feature_importance": {
+            "Gender": -0.4113,
+            "MCV": -0.351,
+            "MCH": 0.1138,
+            "MCHC": 0.0149
+          }
+        }
+      }
+    }
+  }
+}

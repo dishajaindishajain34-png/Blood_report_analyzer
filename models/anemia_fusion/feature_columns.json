@@ -1,0 +1,14 @@
+[
+  "image_probability",
+  "image_confidence",
+  "image_entropy",
+  "cbc_probability",
+  "hemoglobin",
+  "mcv",
+  "mch",
+  "mchc",
+  "gender",
+  "mcv_hb_ratio",
+  "modality_discordance",
+  "modality_synergy"
+]

@@ -1,22 +1,57 @@
 {
   "model_name": "MobileNetV3-Small (AneRBC)",
-  "model_version": "1.0.0",
-  "accuracy": 0.8056,
-  "precision": 0.819,
-  "recall_sensitivity": 0.9773,
-  "specificity": 0.05,
-  "f1_score": 0.8912,
-  "roc_auc": 0.7477,
+  "model_version": "1.1.0",
+  "optimal_threshold": 0.85,
+  "roc_auc": 0.85,
+  "accuracy": 0.7578,
+  "precision": 0.9425,
+  "recall_sensitivity": 0.7593,
+  "specificity": 0.75,
+  "f1_score": 0.841,
   "confusion_matrix": {
-    "TN": 1,
-    "FP": 19,
-    "FN": 2,
-    "TP": 86
+    "TN": 15,
+    "FP": 5,
+    "FN": 26,
+    "TP": 82
+  },
+  "calibrated_metrics": {
+    "threshold": 0.85,
+    "accuracy": 0.7578,
+    "precision": 0.9425,
+    "recall_sensitivity": 0.7593,
+    "specificity": 0.75,
+    "f1_score": 0.841,
+    "confusion_matrix": {
+      "TN": 15,
+      "FP": 5,
+      "FN": 26,
+      "TP": 82
+    }
+  },
+  "default_metrics": {
+    "threshold": 0.5,
+    "accuracy": 0.8359,
+    "precision": 0.885,
+    "recall_sensitivity": 0.9259,
+    "specificity": 0.35,
+    "f1_score": 0.905,
+    "confusion_matrix": {
+      "TN": 7,
+      "FP": 13,
+      "FN": 8,
+      "TP": 100
+    }
+  },
+  "class_weights": {
+    "0_Normal": 3.4012,
+    "1_Anemic": 0.5862
   },
   "sample_counts": {
-    "total": 716,
-    "train": 501,
-    "val": 107,
-    "test": 108
+    "total": 837,
+    "train": 585,
+    "val": 124,
+    "test": 128,
+    "test_normal": 20,
+    "test_anemic": 108
   }
 }

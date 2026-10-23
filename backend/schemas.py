@@ -100,6 +100,10 @@ class FusionAnemiaResponse(BaseModel):
     model_version: str = "1.0.0"
     status: str = "success"
     message: str = ""
+    fusion_mode: Optional[str] = "default"
+    latent_gate_mean: Optional[float] = None
+    is_experimental: bool = False
+    limitation_notice: Optional[str] = None
 
 
 # ── Main analysis response ────────────────────────────────────────────────────────

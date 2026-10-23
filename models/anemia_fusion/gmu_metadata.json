@@ -1,0 +1,17 @@
+{
+  "model_name": "Gated Multimodal Unit (GMU) Anemia Architecture",
+  "model_version": "1.0.0-architecture-only",
+  "training_status": "UNTRAINED_PENDING_PAIRED_DATA",
+  "latent_dimension": 128,
+  "image_backbone": "MobileNetV3-Small",
+  "cbc_input_features": [
+    "Gender",
+    "Hemoglobin",
+    "MCV",
+    "MCH",
+    "MCHC"
+  ],
+  "missing_modality_masking_supported": true,
+  "clinical_disclaimer": "This PyTorch GMU model is an architectural implementation with verified forward-pass and missing-modality tensor masking. It has NOT been trained on arbitrarily matched data. Training and clinical evaluation remain strictly blocked until verified patient-level paired smear-CBC clinical cohorts are acquired.",
+  "gate_interpretation_notice": "GMU gate activations represent intermediate neural network routing weights across the latent embedding space. They MUST NOT be interpreted as calibrated clinical percentages of modality diagnostic reliability."
+}

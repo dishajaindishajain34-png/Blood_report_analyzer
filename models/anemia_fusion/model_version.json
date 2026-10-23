@@ -1,0 +1,39 @@
+{
+  "model_name": "Multimodal Stacking Ensemble",
+  "model_version": "2.0.0",
+  "architecture": "StackingClassifier(cv=5)",
+  "base_estimators": [
+    "HistGradientBoostingClassifier(learning_rate=0.05, max_iter=150, max_depth=5)",
+    "ExtraTreesClassifier(n_estimators=100, max_depth=6)",
+    "MLPClassifier(hidden_layer_sizes=(64, 32), activation='relu')"
+  ],
+  "meta_learner": "LogisticRegression(C=1.0, class_weight='balanced')",
+  "features": [
+    "image_probability",
+    "image_confidence",
+    "image_entropy",
+    "cbc_probability",
+    "hemoglobin",
+    "mcv",
+    "mch",
+    "mchc",
+    "gender",
+    "mcv_hb_ratio",
+    "modality_discordance",
+    "modality_synergy"
+  ],
+  "feature_importances": {
+    "image_probability": 0.0,
+    "image_confidence": 0.0,
+    "image_entropy": 0.0003,
+    "cbc_probability": 0.0886,
+    "hemoglobin": 0.0831,
+    "mcv": 0.0014,
+    "mch": 0.0014,
+    "mchc": -0.0017,
+    "gender": -0.0006,
+    "mcv_hb_ratio": 0.0,
+    "modality_discordance": 0.0,
+    "modality_synergy": 0.0219
+  }
+}

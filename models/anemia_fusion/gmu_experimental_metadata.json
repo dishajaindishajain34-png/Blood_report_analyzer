@@ -1,0 +1,26 @@
+{
+  "model_name": "Gated Multimodal Unit (GMU) Anemia Classifier",
+  "model_version": "1.0.0-experimental-trained",
+  "status": "EXPERIMENTAL_SYNTHETIC_DATA",
+  "warning": "NOT_VALIDATED_ON_PAIRED_PATIENT_DATA",
+  "training_date": "2026-10-23T09:56:18.776067+00:00",
+  "training_command": "python scripts/train_gmu_fusion.py --epochs 10 --batch_size 32 --lr 0.001",
+  "random_seed": 42,
+  "checkpoint_path": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\models\\anemia_fusion\\gmu_fusion_experimental.pth",
+  "scaler_path": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\models\\anemia_fusion\\gmu_experimental_scaler.joblib",
+  "image_backbone": "MobileNetV3-Small (fine-tuned on cluster split, feature dim=576)",
+  "latent_dimension": 128,
+  "cbc_features": [
+    "Gender",
+    "Hemoglobin",
+    "MCV",
+    "MCH",
+    "MCHC"
+  ],
+  "dataset_sources": {
+    "images": "AneRBC / Chula-RBC-12 (cluster-partitioned)",
+    "cbc": "master_cbc_dataset.csv (Kaggle Anemia + Diagnosed CBC)"
+  },
+  "synthetic_pairing_strategy": "Independent random combinations of single-modality samples stratified by class label. Zero cross-split leakage: Train pairs constructed strictly from Train images and Train CBCs; Test pairs constructed strictly from Test images and Test CBCs. 8% discordance rate with systemic anemia label defined by WHO hemoglobin threshold.",
+  "clinical_disclaimer": "This model was trained exclusively on artificially combined image and laboratory records. It establishes architectural tensor compatibility and forward/backward gradient learning, but CANNOT be used for clinical decision-making or real-patient diagnostic screening."
+}

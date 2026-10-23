@@ -1,0 +1,71 @@
+{
+  "test_sample_count": 128,
+  "test_normal": 20,
+  "test_anemic": 108,
+  "baseline_model": {
+    "checkpoint": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\models\\anemia_image\\mobilenetv3_anemia_original_baseline.pth",
+    "frozen_threshold": 0.7389715909957886,
+    "roc_auc": 0.8754629629629629,
+    "default_metrics": {
+      "threshold": 0.5,
+      "accuracy": 0.8672,
+      "precision": 0.8699,
+      "sensitivity": 0.9907,
+      "specificity": 0.2,
+      "f1_score": 0.9264,
+      "confusion_matrix": {
+        "TN": 4,
+        "FP": 16,
+        "FN": 1,
+        "TP": 107
+      }
+    },
+    "calibrated_metrics": {
+      "threshold": 0.739,
+      "accuracy": 0.8125,
+      "precision": 0.9375,
+      "sensitivity": 0.8333,
+      "specificity": 0.7,
+      "f1_score": 0.8824,
+      "confusion_matrix": {
+        "TN": 14,
+        "FP": 6,
+        "FN": 18,
+        "TP": 90
+      }
+    }
+  },
+  "weighted_retrained_model": {
+    "checkpoint": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\models\\anemia_image\\mobilenetv3_anemia.pth",
+    "frozen_threshold": 0.85,
+    "roc_auc": 0.8499999999999999,
+    "default_metrics": {
+      "threshold": 0.5,
+      "accuracy": 0.8359,
+      "precision": 0.885,
+      "sensitivity": 0.9259,
+      "specificity": 0.35,
+      "f1_score": 0.905,
+      "confusion_matrix": {
+        "TN": 7,
+        "FP": 13,
+        "FN": 8,
+        "TP": 100
+      }
+    },
+    "calibrated_metrics": {
+      "threshold": 0.85,
+      "accuracy": 0.7578,
+      "precision": 0.9425,
+      "sensitivity": 0.7593,
+      "specificity": 0.75,
+      "f1_score": 0.841,
+      "confusion_matrix": {
+        "TN": 15,
+        "FP": 5,
+        "FN": 26,
+        "TP": 82
+      }
+    }
+  }
+}

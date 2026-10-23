@@ -1,0 +1,42 @@
+{
+  "model_name": "Multimodal Stacking Ensemble",
+  "model_version": "2.0.0",
+  "sample_count": 2400,
+  "dataset_sources": {
+    "microscopy_images": "AneRBC (738) + Chula-RBC-12 RBC Diseases (121) = 859 images",
+    "cbc_records": "Kaggle Anemia (1,421) + Diagnosed CBC v4 (1,281) = 2,695 records"
+  },
+  "split_counts": {
+    "train": 1680,
+    "val": 360,
+    "test": 360
+  },
+  "test_results": {
+    "accuracy": 0.9944,
+    "precision": 0.9944,
+    "recall_sensitivity": 0.9944,
+    "specificity": 0.9944,
+    "f1_score": 0.9944,
+    "roc_auc": 0.9999,
+    "confusion_matrix": {
+      "TN": 179,
+      "FP": 1,
+      "FN": 1,
+      "TP": 179
+    }
+  },
+  "permutation_importances": {
+    "image_probability": 0.0,
+    "image_confidence": 0.0,
+    "image_entropy": 0.0003,
+    "cbc_probability": 0.0886,
+    "hemoglobin": 0.0831,
+    "mcv": 0.0014,
+    "mch": 0.0014,
+    "mchc": -0.0017,
+    "gender": -0.0006,
+    "mcv_hb_ratio": 0.0,
+    "modality_discordance": 0.0,
+    "modality_synergy": 0.0219
+  }
+}

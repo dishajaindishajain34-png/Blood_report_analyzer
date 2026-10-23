@@ -1,0 +1,71 @@
+{
+  "description": "Comparison between old unclustered split and remediated cluster-level split",
+  "caveat": "Differences reflect the elimination of cross-split duplicate/same-slide frames and altered split composition. Performance should be viewed as a more honest, leakage-resistant benchmark rather than a direct algorithmic gain.",
+  "metrics_table": {
+    "unclustered_baseline_calibrated": {
+      "threshold": 0.739,
+      "accuracy": 0.8125,
+      "sensitivity": 0.8333,
+      "specificity": 0.7,
+      "f1_score": 0.8824,
+      "confusion_matrix": {
+        "TN": 14,
+        "FP": 6,
+        "FN": 18,
+        "TP": 90
+      }
+    },
+    "unclustered_weighted_calibrated": {
+      "threshold": 0.85,
+      "accuracy": 0.7578,
+      "sensitivity": 0.7593,
+      "specificity": 0.75,
+      "f1_score": 0.841,
+      "confusion_matrix": {
+        "TN": 15,
+        "FP": 5,
+        "FN": 26,
+        "TP": 82
+      }
+    },
+    "remediated_cluster_split_calibrated": {
+      "threshold": 0.5007,
+      "accuracy": 0.7519,
+      "accuracy_ci_95": [
+        0.682,
+        0.8295
+      ],
+      "sensitivity": 0.7727,
+      "sensitivity_ci_95": [
+        0.6944,
+        0.8469
+      ],
+      "specificity": 0.6316,
+      "specificity_ci_95": [
+        0.4,
+        0.8502
+      ],
+      "precision": 0.9239,
+      "precision_ci_95": [
+        0.8686,
+        0.975
+      ],
+      "f1_score": 0.8416,
+      "f1_ci_95": [
+        0.7853,
+        0.8942
+      ],
+      "roc_auc": 0.8167,
+      "roc_auc_ci_95": [
+        0.722,
+        0.8994
+      ],
+      "confusion_matrix": {
+        "TN": 12,
+        "FP": 7,
+        "FN": 25,
+        "TP": 85
+      }
+    }
+  }
+}

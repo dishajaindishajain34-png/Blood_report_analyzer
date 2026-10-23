@@ -1,0 +1,1364 @@
+{
+  "total_images_analyzed": 837,
+  "total_pairs_compared": 349866,
+  "dhash_distance_threshold": 4,
+  "cosine_similarity_threshold": 0.98,
+  "candidate_pairs_found": 553,
+  "cross_split_candidates_count": 264,
+  "candidate_pairs_top50": [
+    {
+      "image_1": {
+        "filename": "103.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\103.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "104.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\104.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 36,
+      "embedding_cosine_similarity": 0.9867,
+      "cross_split": true,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "103.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\103.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "106.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\106.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 38,
+      "embedding_cosine_similarity": 0.9812,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "105.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\105.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "95.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\95.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 34,
+      "embedding_cosine_similarity": 0.9801,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "105.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\105.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "98.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\98.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 32,
+      "embedding_cosine_similarity": 0.9841,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "105.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\105.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "104.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\104.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 30,
+      "embedding_cosine_similarity": 0.9873,
+      "cross_split": true,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "105.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\105.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "101.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\101.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 26,
+      "embedding_cosine_similarity": 0.9825,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "105.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\105.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "106.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\106.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 38,
+      "embedding_cosine_similarity": 0.9866,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "115.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\115.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "117.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\117.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 37,
+      "embedding_cosine_similarity": 0.9867,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "115.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\115.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 31,
+      "embedding_cosine_similarity": 0.9834,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "115.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\115.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "109.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\109.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 28,
+      "embedding_cosine_similarity": 0.982,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "115.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\115.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "114.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\114.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 28,
+      "embedding_cosine_similarity": 0.9819,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "115.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\115.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "111.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\111.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 35,
+      "embedding_cosine_similarity": 0.9803,
+      "cross_split": true,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "117.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\117.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 26,
+      "embedding_cosine_similarity": 0.9856,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "117.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\117.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "125.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\125.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 37,
+      "embedding_cosine_similarity": 0.9821,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "119.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\119.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "121.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\121.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 37,
+      "embedding_cosine_similarity": 0.9837,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "119.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\119.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "109.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\109.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 28,
+      "embedding_cosine_similarity": 0.9838,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "119.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\119.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "114.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\114.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 32,
+      "embedding_cosine_similarity": 0.9817,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "119.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\119.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "116.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\116.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.983,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "119.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\119.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "125.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\125.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 30,
+      "embedding_cosine_similarity": 0.9831,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "120.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\120.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "113.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\113.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 27,
+      "embedding_cosine_similarity": 0.983,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "121.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\121.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "124.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\124.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 24,
+      "embedding_cosine_similarity": 0.9834,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "126.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\126.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "125.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\125.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.9828,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "127.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\127.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "128.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\128.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 27,
+      "embedding_cosine_similarity": 0.9804,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "127.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\127.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "131.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\131.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 27,
+      "embedding_cosine_similarity": 0.9808,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "128.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\128.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "129.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\129.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 27,
+      "embedding_cosine_similarity": 0.9809,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "128.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\128.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 36,
+      "embedding_cosine_similarity": 0.9804,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "128.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\128.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "133.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\133.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.983,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "129.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\129.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 39,
+      "embedding_cosine_similarity": 0.9829,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "129.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\129.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "125.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\125.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 30,
+      "embedding_cosine_similarity": 0.9819,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "125.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\125.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 29,
+      "embedding_cosine_similarity": 0.9842,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "130.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\130.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "135.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\135.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 32,
+      "embedding_cosine_similarity": 0.9803,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "151.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\151.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "152.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\152.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 4,
+      "embedding_cosine_similarity": 0.9961,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "160.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\160.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 31,
+      "embedding_cosine_similarity": 0.9837,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "160.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\160.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "163.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\163.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 31,
+      "embedding_cosine_similarity": 0.9804,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "160.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\160.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "167.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\167.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 31,
+      "embedding_cosine_similarity": 0.9814,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "173.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\173.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.9822,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "175.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\175.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.982,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "178.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\178.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 26,
+      "embedding_cosine_similarity": 0.981,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "163.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\163.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 30,
+      "embedding_cosine_similarity": 0.9831,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "166.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\166.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 26,
+      "embedding_cosine_similarity": 0.9824,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "174.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\174.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 34,
+      "embedding_cosine_similarity": 0.9821,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "162.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\162.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "167.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\167.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 36,
+      "embedding_cosine_similarity": 0.9849,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "164.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\164.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "163.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\163.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 24,
+      "embedding_cosine_similarity": 0.981,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "175.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\175.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "163.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\163.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 33,
+      "embedding_cosine_similarity": 0.9842,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "186.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\186.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "188.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\188.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 37,
+      "embedding_cosine_similarity": 0.9816,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "188.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\188.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "181.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\181.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "val"
+      },
+      "dhash_hamming_distance": 29,
+      "embedding_cosine_similarity": 0.9806,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "190.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\190.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "194.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\194.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 24,
+      "embedding_cosine_similarity": 0.9851,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "221.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\221.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "212.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Normal\\212.jpg",
+        "label": 0,
+        "class_name": "Normal",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 35,
+      "embedding_cosine_similarity": 0.9869,
+      "cross_split": false,
+      "same_label": false,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "248.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\248.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "250.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\250.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "dhash_hamming_distance": 35,
+      "embedding_cosine_similarity": 0.9807,
+      "cross_split": false,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    },
+    {
+      "image_1": {
+        "filename": "251.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\251.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "train"
+      },
+      "image_2": {
+        "filename": "252.jpg",
+        "filepath": "C:\\Users\\HP\\Desktop\\Blood_report_analyzer-main\\data\\anerbc_raw\\Anemia\\252.jpg",
+        "label": 1,
+        "class_name": "Anemic",
+        "split": "test"
+      },
+      "dhash_hamming_distance": 3,
+      "embedding_cosine_similarity": 0.9978,
+      "cross_split": true,
+      "same_label": true,
+      "match_type": "moderate_similarity"
+    }
+  ],
+  "review_summary": {
+    "cross_split_candidates": [
+      {
+        "pair": "103.jpg (train) <-> 104.jpg (val)",
+        "dhash_dist": 36,
+        "cosine_sim": 0.9867,
+        "same_label": false
+      },
+      {
+        "pair": "103.jpg (train) <-> 106.jpg (test)",
+        "dhash_dist": 38,
+        "cosine_sim": 0.9812,
+        "same_label": true
+      },
+      {
+        "pair": "105.jpg (train) <-> 95.jpg (val)",
+        "dhash_dist": 34,
+        "cosine_sim": 0.9801,
+        "same_label": true
+      },
+      {
+        "pair": "105.jpg (train) <-> 98.jpg (val)",
+        "dhash_dist": 32,
+        "cosine_sim": 0.9841,
+        "same_label": true
+      },
+      {
+        "pair": "105.jpg (train) <-> 104.jpg (val)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9873,
+        "same_label": false
+      },
+      {
+        "pair": "105.jpg (train) <-> 101.jpg (test)",
+        "dhash_dist": 26,
+        "cosine_sim": 0.9825,
+        "same_label": true
+      },
+      {
+        "pair": "105.jpg (train) <-> 106.jpg (test)",
+        "dhash_dist": 38,
+        "cosine_sim": 0.9866,
+        "same_label": true
+      },
+      {
+        "pair": "115.jpg (train) <-> 111.jpg (test)",
+        "dhash_dist": 35,
+        "cosine_sim": 0.9803,
+        "same_label": false
+      },
+      {
+        "pair": "117.jpg (train) <-> 125.jpg (test)",
+        "dhash_dist": 37,
+        "cosine_sim": 0.9821,
+        "same_label": true
+      },
+      {
+        "pair": "119.jpg (train) <-> 116.jpg (test)",
+        "dhash_dist": 33,
+        "cosine_sim": 0.983,
+        "same_label": true
+      },
+      {
+        "pair": "119.jpg (train) <-> 125.jpg (test)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9831,
+        "same_label": true
+      },
+      {
+        "pair": "126.jpg (train) <-> 125.jpg (test)",
+        "dhash_dist": 33,
+        "cosine_sim": 0.9828,
+        "same_label": true
+      },
+      {
+        "pair": "129.jpg (train) <-> 125.jpg (test)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9819,
+        "same_label": true
+      },
+      {
+        "pair": "130.jpg (train) <-> 125.jpg (test)",
+        "dhash_dist": 29,
+        "cosine_sim": 0.9842,
+        "same_label": true
+      },
+      {
+        "pair": "130.jpg (train) <-> 135.jpg (test)",
+        "dhash_dist": 32,
+        "cosine_sim": 0.9803,
+        "same_label": true
+      },
+      {
+        "pair": "160.jpg (train) <-> 163.jpg (val)",
+        "dhash_dist": 31,
+        "cosine_sim": 0.9804,
+        "same_label": true
+      },
+      {
+        "pair": "160.jpg (train) <-> 167.jpg (test)",
+        "dhash_dist": 31,
+        "cosine_sim": 0.9814,
+        "same_label": true
+      },
+      {
+        "pair": "162.jpg (train) <-> 163.jpg (val)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9831,
+        "same_label": true
+      },
+      {
+        "pair": "162.jpg (train) <-> 166.jpg (val)",
+        "dhash_dist": 26,
+        "cosine_sim": 0.9824,
+        "same_label": true
+      },
+      {
+        "pair": "162.jpg (train) <-> 174.jpg (val)",
+        "dhash_dist": 34,
+        "cosine_sim": 0.9821,
+        "same_label": true
+      },
+      {
+        "pair": "162.jpg (train) <-> 167.jpg (test)",
+        "dhash_dist": 36,
+        "cosine_sim": 0.9849,
+        "same_label": true
+      },
+      {
+        "pair": "164.jpg (train) <-> 163.jpg (val)",
+        "dhash_dist": 24,
+        "cosine_sim": 0.981,
+        "same_label": true
+      },
+      {
+        "pair": "175.jpg (train) <-> 163.jpg (val)",
+        "dhash_dist": 33,
+        "cosine_sim": 0.9842,
+        "same_label": true
+      },
+      {
+        "pair": "188.jpg (train) <-> 181.jpg (val)",
+        "dhash_dist": 29,
+        "cosine_sim": 0.9806,
+        "same_label": true
+      },
+      {
+        "pair": "251.jpg (train) <-> 252.jpg (test)",
+        "dhash_dist": 3,
+        "cosine_sim": 0.9978,
+        "same_label": true
+      },
+      {
+        "pair": "254.jpg (train) <-> 255.jpg (val)",
+        "dhash_dist": 32,
+        "cosine_sim": 0.985,
+        "same_label": true
+      },
+      {
+        "pair": "258.jpg (train) <-> 255.jpg (val)",
+        "dhash_dist": 31,
+        "cosine_sim": 0.9879,
+        "same_label": true
+      },
+      {
+        "pair": "258.jpg (train) <-> 256.jpg (val)",
+        "dhash_dist": 34,
+        "cosine_sim": 0.9852,
+        "same_label": true
+      },
+      {
+        "pair": "259.jpg (train) <-> 263.jpg (val)",
+        "dhash_dist": 32,
+        "cosine_sim": 0.9801,
+        "same_label": true
+      },
+      {
+        "pair": "262.jpg (train) <-> 263.jpg (val)",
+        "dhash_dist": 0,
+        "cosine_sim": 0.9945,
+        "same_label": true
+      },
+      {
+        "pair": "264.jpg (train) <-> 261.jpg (test)",
+        "dhash_dist": 39,
+        "cosine_sim": 0.9873,
+        "same_label": true
+      },
+      {
+        "pair": "269.jpg (train) <-> 275.jpg (test)",
+        "dhash_dist": 0,
+        "cosine_sim": 0.9993,
+        "same_label": true
+      },
+      {
+        "pair": "271.jpg (train) <-> 277.jpg (val)",
+        "dhash_dist": 1,
+        "cosine_sim": 0.9992,
+        "same_label": true
+      },
+      {
+        "pair": "292.jpg (train) <-> 309.jpg (val)",
+        "dhash_dist": 27,
+        "cosine_sim": 0.981,
+        "same_label": true
+      },
+      {
+        "pair": "292.jpg (train) <-> 322.jpg (test)",
+        "dhash_dist": 37,
+        "cosine_sim": 0.9802,
+        "same_label": true
+      },
+      {
+        "pair": "293.jpg (train) <-> 301.jpg (test)",
+        "dhash_dist": 40,
+        "cosine_sim": 0.9811,
+        "same_label": true
+      },
+      {
+        "pair": "294.jpg (train) <-> 309.jpg (val)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9833,
+        "same_label": true
+      },
+      {
+        "pair": "294.jpg (train) <-> 312.jpg (val)",
+        "dhash_dist": 36,
+        "cosine_sim": 0.9837,
+        "same_label": true
+      },
+      {
+        "pair": "294.jpg (train) <-> 322.jpg (test)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9843,
+        "same_label": true
+      },
+      {
+        "pair": "295.jpg (train) <-> 312.jpg (val)",
+        "dhash_dist": 27,
+        "cosine_sim": 0.9826,
+        "same_label": true
+      },
+      {
+        "pair": "295.jpg (train) <-> 314.jpg (val)",
+        "dhash_dist": 31,
+        "cosine_sim": 0.9815,
+        "same_label": true
+      },
+      {
+        "pair": "296.jpg (train) <-> 301.jpg (test)",
+        "dhash_dist": 27,
+        "cosine_sim": 0.9815,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 309.jpg (val)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9869,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 312.jpg (val)",
+        "dhash_dist": 24,
+        "cosine_sim": 0.9833,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 314.jpg (val)",
+        "dhash_dist": 28,
+        "cosine_sim": 0.9814,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 301.jpg (test)",
+        "dhash_dist": 29,
+        "cosine_sim": 0.9844,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 320.jpg (test)",
+        "dhash_dist": 32,
+        "cosine_sim": 0.9836,
+        "same_label": true
+      },
+      {
+        "pair": "300.jpg (train) <-> 322.jpg (test)",
+        "dhash_dist": 40,
+        "cosine_sim": 0.9875,
+        "same_label": true
+      },
+      {
+        "pair": "302.jpg (train) <-> 309.jpg (val)",
+        "dhash_dist": 30,
+        "cosine_sim": 0.9834,
+        "same_label": true
+      },
+      {
+        "pair": "302.jpg (train) <-> 301.jpg (test)",
+        "dhash_dist": 33,
+        "cosine_sim": 0.9824,
+        "same_label": true
+      }
+    ]
+  }
+}

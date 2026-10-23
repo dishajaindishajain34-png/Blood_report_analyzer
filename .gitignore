@@ -5,7 +5,9 @@ __pycache__/
 
 data/
 runs/
-reports/
+reports/*.pdf
+reports/*.png
+exercise_output*.json
 
 node_modules/
 dist/
