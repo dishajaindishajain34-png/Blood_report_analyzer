@@ -114,6 +114,32 @@ function ModelPage() {
           </section>
 
           <section className="panel p-5">
+            <h3 className="text-sm font-semibold">Multimodal Fusion Engines</h3>
+            <p className="mt-1 text-xs text-muted-foreground">Selectable on the Analyze page for screening evaluation.</p>
+            <div className="mt-3 space-y-2.5 text-xs">
+              <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-3">
+                <div className="flex items-center justify-between font-semibold text-emerald-400">
+                  <span>Production Stacking Ensemble</span>
+                  <Badge className="bg-emerald-600/90 text-white text-[10px] h-4 px-1.5">Default</Badge>
+                </div>
+                <p className="mt-1 text-muted-foreground leading-relaxed">
+                  HistGradientBoosting + ExtraTrees base learners stacked with a Logistic Regression meta-classifier over 12 morphological, entropy, and CBC parameters.
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-violet-500/30 bg-violet-500/5 p-3">
+                <div className="flex items-center justify-between font-semibold text-violet-400">
+                  <span>PyTorch Gated Multimodal Unit (GMU)</span>
+                  <Badge className="bg-violet-600/90 text-white text-[10px] h-4 px-1.5">Experimental</Badge>
+                </div>
+                <p className="mt-1 text-muted-foreground leading-relaxed">
+                  Deep neural gating network projecting smear microscopy embeddings and CBC vectors into a latent space with dynamic modality gating and missing-modality masking.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="panel p-5">
             <h3 className="text-sm font-semibold">Analysis capabilities</h3>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               {[

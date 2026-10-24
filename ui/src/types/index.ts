@@ -121,6 +121,10 @@ export interface FusionAnemiaResponse {
   modelVersion: string;
   status: string;
   message: string;
+  fusionMode?: string | undefined;
+  latentGateMean?: number | undefined;
+  isExperimental?: boolean | undefined;
+  limitationNotice?: string | undefined;
 }
 
 export interface Analysis {
@@ -210,4 +214,5 @@ export interface AnalyzeRequest {
   mcv?: number | undefined;
   mch?: number | undefined;
   mchc?: number | undefined;
+  fusionMode?: 'default' | 'experimental_gmu' | string | undefined;
 }

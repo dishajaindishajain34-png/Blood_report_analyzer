@@ -145,7 +145,7 @@ function toUiAnalysis(data: any, file?: File): Analysis {
   const summary = cellKeys.map(({ key, label, unit, ref }) => {
     const value = parseNumber(calibrated?.[key], 0);
     const fixedValue = key === "rbc" ? (value / 1000000).toFixed(2) : (value / 1000).toFixed(1);
-    const status = key === "rbc" ? (value < 4.5 ? "low" : value > 5.9 ? "high" : "normal") : key === "wbc" ? (value < 4 ? "low" : value > 11 ? "high" : "normal") : value < 150 ? "low" : value > 450 ? "high" : "normal";
+    const status: "normal" | "low" | "high" | "unknown" = key === "rbc" ? (value < 4.5 ? "low" : value > 5.9 ? "high" : "normal") : key === "wbc" ? (value < 4 ? "low" : value > 11 ? "high" : "normal") : value < 150 ? "low" : value > 450 ? "high" : "normal";
     return {
       cellType: label,
       value: fixedValue,
@@ -227,6 +227,12 @@ function toUiAnalysis(data: any, file?: File): Analysis {
       modelVersion: String(data.anemia_fusion.model_version ?? "1.0.0"),
       status: String(data.anemia_fusion.status ?? "success"),
       message: String(data.anemia_fusion.message ?? ""),
+      fusionMode: String(data.anemia_fusion.fusion_mode ?? (data.anemia_fusion.is_experimental ? "experimental_gmu" : "default")),
+      latentGateMean: (data.anemia_fusion.latent_gate_mean !== undefined && data.anemia_fusion.latent_gate_mean !== null)
+        ? parseNumber(data.anemia_fusion.latent_gate_mean, 0)
+        : undefined,
+      isExperimental: Boolean(data.anemia_fusion.is_experimental),
+      limitationNotice: data.anemia_fusion.limitation_notice ? String(data.anemia_fusion.limitation_notice) : undefined,
     };
   }
 
@@ -362,7 +368,7 @@ export const api = {
         detectionModel: { name: "YOLOv8", version: "blood-model", loaded: true },
         classificationModel: { name: "ResNet50", version: "wbc-model", loaded: true },
         inferenceEngine: { name: "PyTorch / OpenCV", online: true },
-        apiOnline: res?.status === "ok" || res?.message?.length > 0,
+        apiOnline: res?.status === "ok" || ((res?.message?.length ?? 0) > 0),
         frontendVersion: res?.version ?? "1.0.0",
       };
     } catch {
@@ -402,7 +408,7 @@ export const api = {
       : 0;
 
     const cellDistribution = [
-      { cellType: "RBC" as const, count: analyses.reduce((sum, a) => sum + a.cellStatistics.breakdown.find((b) => b.cellType === "RBC")?.count ?? 0, 0) },
+      { cellType: "RBC" as const, count: analyses.reduce((sum, a) => sum + (a.cellStatistics.breakdown.find((b) => b.cellType === "RBC")?.count ?? 0), 0) },
       { cellType: "WBC" as const, count: analyses.reduce((sum, a) => sum + (a.cellStatistics.breakdown.find((b) => b.cellType === "WBC")?.count ?? 0), 0) },
       { cellType: "Platelet" as const, count: analyses.reduce((sum, a) => sum + (a.cellStatistics.breakdown.find((b) => b.cellType === "Platelet")?.count ?? 0), 0) },
     ];
@@ -449,6 +455,10 @@ export const api = {
     if (payload.mcv !== undefined) form.append("mcv", String(payload.mcv));
     if (payload.mch !== undefined) form.append("mch", String(payload.mch));
     if (payload.mchc !== undefined) form.append("mchc", String(payload.mchc));
+    if (payload.fusionMode) {
+      form.append("fusion_mode", payload.fusionMode);
+      form.append("prediction_mode", payload.fusionMode);
+    }
 
     const backend = await request<any>(`/analyze?${new URLSearchParams({
       ...(payload.gender ? { gender: payload.gender } : {}),
@@ -456,6 +466,7 @@ export const api = {
       ...(payload.mcv !== undefined ? { mcv: String(payload.mcv) } : {}),
       ...(payload.mch !== undefined ? { mch: String(payload.mch) } : {}),
       ...(payload.mchc !== undefined ? { mchc: String(payload.mchc) } : {}),
+      ...(payload.fusionMode ? { fusion_mode: payload.fusionMode, prediction_mode: payload.fusionMode } : {}),
     }).toString()}`, { method: "POST", body: form });
     
     const analysis = toUiAnalysis(backend, payload.file);

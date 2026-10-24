@@ -142,6 +142,7 @@ async def analyze_image(
     mch:    float | None = Form(None),
     mchc:   float | None = Form(None),
     fusion_mode: str = Form("default"),
+    prediction_mode: str | None = Form(None),
 ):
     """
     Upload a blood smear image and receive a full AI analysis result.
@@ -200,9 +201,12 @@ async def analyze_image(
     if mchc is None: mchc = _qp_float("mchc")
 
     if fusion_mode == "default":
-        qp_mode = request.query_params.get("fusion_mode")
-        if qp_mode and qp_mode.strip():
-            fusion_mode = qp_mode.strip()
+        if prediction_mode and prediction_mode.strip():
+            fusion_mode = prediction_mode.strip()
+        else:
+            qp_mode = request.query_params.get("fusion_mode") or request.query_params.get("prediction_mode")
+            if qp_mode and qp_mode.strip():
+                fusion_mode = qp_mode.strip()
 
     # Diagnostic logging (requested by user for verification)
     print("CBC RECEIVED:")

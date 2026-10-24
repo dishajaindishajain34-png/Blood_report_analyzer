@@ -2,7 +2,8 @@ import { useCallback, useRef, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Loader2, Microscope, Trash2, UploadCloud, Sparkles } from "lucide-react";
+import { Check, Loader2, Microscope, Trash2, UploadCloud, Sparkles, GitMerge, AlertTriangle, Layers } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,7 @@ function AnalyzePage() {
   const [mcv, setMcv] = useState("");
   const [mch, setMch] = useState("");
   const [mchc, setMchc] = useState("");
+  const [fusionMode, setFusionMode] = useState<"default" | "experimental_gmu">("default");
   
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
@@ -99,7 +101,7 @@ function AnalyzePage() {
     setError(null);
     setStep(0);
     try {
-      const payload: any = { file };
+      const payload: any = { file, fusionMode };
       if (patientId) payload.patientId = patientId;
       if (sampleId) payload.sampleId = sampleId;
       if (notes) payload.notes = notes;
@@ -302,6 +304,105 @@ function AnalyzePage() {
           </section>
 
           <aside className="space-y-4">
+            {/* Model Selection Panel */}
+            <section className="panel p-5 space-y-3.5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="grid size-7 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <GitMerge className="size-4" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-semibold">Multimodal AI Engine</h3>
+                    <p className="text-xs text-muted-foreground">Select screening fusion model</p>
+                  </div>
+                </div>
+                <Badge variant={fusionMode === "default" ? "secondary" : "outline"} className="text-[10px]">
+                  {fusionMode === "default" ? "Stacking v2.0" : "PyTorch GMU"}
+                </Badge>
+              </div>
+
+              <div className="grid gap-2.5 pt-1">
+                {/* Production Stacking Ensemble */}
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setFusionMode("default")}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setFusionMode("default"); }}
+                  className={cn(
+                    "relative cursor-pointer rounded-xl border p-3.5 transition-all text-left",
+                    fusionMode === "default"
+                      ? "border-emerald-500/60 bg-emerald-500/10 shadow-sm ring-1 ring-emerald-500/30"
+                      : "border-border bg-muted/20 hover:border-border/80 hover:bg-muted/40"
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-semibold text-foreground">Production Stacking Ensemble</span>
+                        <Badge className="bg-emerald-600/90 text-white border-0 text-[10px] px-1.5 py-0 h-4">
+                          Default
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        HistGB + ExtraTrees + Logistic Regression meta-learner across 12 clinical & morphological features.
+                      </p>
+                    </div>
+                    <div className={cn(
+                      "grid size-4 shrink-0 place-items-center rounded-full border mt-0.5",
+                      fusionMode === "default" ? "border-emerald-500 bg-emerald-500 text-white" : "border-muted-foreground/40"
+                    )}>
+                      {fusionMode === "default" && <Check className="size-2.5 stroke-[3]" />}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Experimental GMU Fusion */}
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setFusionMode("experimental_gmu")}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setFusionMode("experimental_gmu"); }}
+                  className={cn(
+                    "relative cursor-pointer rounded-xl border p-3.5 transition-all text-left",
+                    fusionMode === "experimental_gmu"
+                      ? "border-violet-500/60 bg-violet-500/10 shadow-sm ring-1 ring-violet-500/30"
+                      : "border-border bg-muted/20 hover:border-border/80 hover:bg-muted/40"
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-semibold text-foreground">Experimental GMU Fusion</span>
+                        <Badge className="bg-violet-600/90 text-white border-0 text-[10px] px-1.5 py-0 h-4">
+                          Research
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        PyTorch Gated Multimodal Unit with dynamic latent modality gating and missing-modality masks.
+                      </p>
+                    </div>
+                    <div className={cn(
+                      "grid size-4 shrink-0 place-items-center rounded-full border mt-0.5",
+                      fusionMode === "experimental_gmu" ? "border-violet-500 bg-violet-500 text-white" : "border-muted-foreground/40"
+                    )}>
+                      {fusionMode === "experimental_gmu" && <Check className="size-2.5 stroke-[3]" />}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {fusionMode === "experimental_gmu" && (
+                <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-200 mt-2 space-y-1">
+                  <div className="flex items-center gap-1.5 font-medium text-amber-300">
+                    <AlertTriangle className="size-3.5 shrink-0" />
+                    Academic Prototype Notice
+                  </div>
+                  <p className="text-amber-200/80 leading-normal text-[11px]">
+                    Trained on synthetic image-CBC pairings. Evaluated for dynamic gating and feature masking; not clinically validated on real patient cohorts.
+                  </p>
+                </div>
+              )}
+            </section>
             <section className="panel p-5">
               <h3 className="text-sm font-semibold">Sample reference (optional)</h3>
               <p className="mt-1 text-xs text-muted-foreground">

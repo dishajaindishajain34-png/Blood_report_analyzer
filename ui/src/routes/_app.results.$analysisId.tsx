@@ -74,14 +74,26 @@ function FusionAnemiaPanel({ data }: { data: any }) {
   const f = data?.anemiaFusion;
   const hasResult = f && f.status === "success";
 
+  const isGmu =
+    f?.fusionStrategy?.includes("gmu") ||
+    f?.fusionMode === "experimental_gmu" ||
+    Boolean(f?.isExperimental);
+  const isStacking =
+    f?.fusionStrategy === "learned_stacking_ensemble" ||
+    f?.fusionStrategy === "stacking_ensemble";
   const isLearned =
+    isStacking ||
     f?.fusionStrategy === "learned_logistic_regression" ||
     f?.fusionStrategy === "learned_lr";
   const isFallback = f?.fusionStrategy === "average_fallback";
-  const isImageOnly = f?.fusionStrategy === "image_only";
-  const isCbcOnly = f?.fusionStrategy === "cbc_only";
+  const isImageOnly = f?.fusionStrategy === "image_only" || f?.fusionStrategy === "experimental_gmu_image_only";
+  const isCbcOnly = f?.fusionStrategy === "cbc_only" || f?.fusionStrategy === "experimental_gmu_cbc_only";
 
-  const strategyLabel = isLearned
+  const strategyLabel = isGmu
+    ? "Experimental GMU Fusion"
+    : isStacking
+    ? "Multimodal Stacking Ensemble"
+    : isLearned
     ? "Learned Multimodal Fusion"
     : isFallback
     ? "Fallback Fusion"
@@ -116,7 +128,15 @@ function FusionAnemiaPanel({ data }: { data: any }) {
         {/* Strategy badge */}
         {hasResult && (
           <div className="shrink-0">
-            {isLearned ? (
+            {isGmu ? (
+              <Badge className="bg-violet-600/90 text-white border-0 text-xs px-3 py-1 font-semibold flex items-center gap-1.5">
+                ⚡ PyTorch GMU (Experimental)
+              </Badge>
+            ) : isStacking ? (
+              <Badge className="bg-emerald-600/90 text-white border-0 text-xs px-3 py-1 font-semibold">
+                ✓ Stacking Ensemble v2.0
+              </Badge>
+            ) : isLearned ? (
               <Badge className="bg-emerald-600/90 text-white border-0 text-xs px-3 py-1 font-semibold">
                 ✓ Learned Multimodal Fusion
               </Badge>
@@ -233,12 +253,39 @@ function FusionAnemiaPanel({ data }: { data: any }) {
                   </div>
                 </div>
               </div>
+              {isGmu && f?.latentGateMean !== undefined && (
+                <div className="mt-4 rounded-xl border border-violet-500/30 bg-violet-950/40 p-4 space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-violet-200">GMU Dynamic Modality Gate (z)</span>
+                    <span className="font-mono text-violet-300">
+                      Smear: {(f.latentGateMean * 100).toFixed(1)}% · CBC: {((1 - f.latentGateMean) * 100).toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className="h-2 w-full rounded-full bg-white/10 overflow-hidden flex">
+                    <div
+                      className="h-full bg-sky-400 transition-all"
+                      style={{ width: `${Math.round(f.latentGateMean * 100)}%` }}
+                      title="Image modality contribution"
+                    />
+                    <div
+                      className="h-full bg-purple-400 transition-all"
+                      style={{ width: `${100 - Math.round(f.latentGateMean * 100)}%` }}
+                      title="CBC modality contribution"
+                    />
+                  </div>
+                  <p className="text-[11px] text-violet-300/80">
+                    The GMU unit dynamically weighs latent features from each stream based on modality presence and confidence.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Fusion strategy explanation */}
             <div
               className={`rounded-xl px-5 py-3.5 text-sm flex items-start gap-3 ${
-                isLearned
+                isGmu
+                  ? "bg-violet-950/50 border border-violet-500/30"
+                  : isLearned
                   ? "bg-emerald-950/50 border border-emerald-500/30"
                   : isFallback
                   ? "bg-amber-950/50 border border-amber-500/30"
@@ -247,34 +294,49 @@ function FusionAnemiaPanel({ data }: { data: any }) {
             >
               <Info
                 className={`size-4 shrink-0 mt-0.5 ${
-                  isLearned ? "text-emerald-400" : isFallback ? "text-amber-400" : "text-blue-400"
+                  isGmu ? "text-violet-400" : isLearned ? "text-emerald-400" : isFallback ? "text-amber-400" : "text-blue-400"
                 }`}
               />
-              <div>
+              <div className="space-y-1">
                 <p
                   className={`font-semibold ${
-                    isLearned ? "text-emerald-300" : isFallback ? "text-amber-300" : "text-blue-300"
+                    isGmu ? "text-violet-300" : isLearned ? "text-emerald-300" : isFallback ? "text-amber-300" : "text-blue-300"
                   }`}
                 >
                   {strategyLabel}
                 </p>
-                {isFallback && (
-                  <p className="text-amber-400/80 text-xs mt-0.5">
-                    Trained fusion model unavailable — result is the simple average of Image probability and CBC probability.
-                    Train a fusion model with paired data for higher accuracy.
+                {isGmu && (
+                  <div className="space-y-1.5 text-xs text-violet-300/80">
+                    <p>
+                      Inference evaluated using the PyTorch Gated Multimodal Unit (GMU) with adaptive gate routing and modality masking.
+                    </p>
+                    <div className="rounded-md border border-amber-500/30 bg-amber-500/10 p-2.5 text-[11px] text-amber-200">
+                      <span className="font-semibold text-amber-300">Academic Prototype Notice: </span>
+                      {f.limitationNotice || "Trained on synthetic image-CBC pairings. Evaluated for dynamic gating; not clinically validated on genuine patient cohorts."}
+                    </div>
+                  </div>
+                )}
+                {!isGmu && isStacking && (
+                  <p className="text-emerald-400/80 text-xs mt-0.5">
+                    Multimodal Stacking Ensemble (HistGB + ExtraTrees + Logistic Regression) applied across 12 clinical & morphological features.
                   </p>
                 )}
-                {isLearned && (
+                {!isGmu && !isStacking && isLearned && (
                   <p className="text-emerald-400/80 text-xs mt-0.5">
                     A trained Logistic Regression model has been applied to combine image and CBC probabilities.
                   </p>
                 )}
-                {isImageOnly && (
+                {isFallback && (
+                  <p className="text-amber-400/80 text-xs mt-0.5">
+                    Trained fusion model unavailable — result is the simple average of Image probability and CBC probability.
+                  </p>
+                )}
+                {isImageOnly && !isGmu && (
                   <p className="text-blue-400/80 text-xs mt-0.5">
                     No CBC values were provided — result is based on the blood-smear image alone.
                   </p>
                 )}
-                {isCbcOnly && (
+                {isCbcOnly && !isGmu && (
                   <p className="text-blue-400/80 text-xs mt-0.5">
                     No blood-smear image was available — result is based on CBC parameters alone.
                   </p>
